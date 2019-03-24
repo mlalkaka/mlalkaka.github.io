@@ -1,0 +1,23 @@
+<!doctype html>
+<html manifest="cache.manifest">
+	<title>Demo: Application Cache and HTTPS Certificates bug</title>
+	<body>
+	<h1>Application Cache and HTTPS Certificates</h1>
+	<p>This is a demonstration of a bug I found in WebKit, involving the use of Application Cache and HTTPS certificates. It seems that when a web page specifies an Application Cache (using the <code>manifest</code> attribute on its <code>html</code> tag), web browsers do not consistently display the webpage's HTTPS certificate.</p>
+
+	<h2>How To Use This Demo</h2>
+	<ol>
+		<li>Navigate to this page in a web browser.</li>	
+		<li>Verify that the lock icon appears, <em>and</em> that you can actually view the web page's HTTPS certificate.</li>
+		<li>Close the web browser.</li>
+		<li>Open the web browser again.</li>
+		<li>Navigate to this page again.</li>
+	</ol>
+	<h3>Expected Result</h3>
+	The HTTPS lock icon appears again, <em>and</em> you can still view the HTTPS certificate.
+	<h3>Actual Result</h3>
+	<p>In Epiphany (on Linux), the HTTPS lock icon displays a warning claiming the site is insecure, and you cannot see the HTTPS certificate.</p>
+	<p>In Safari (on MacOS), the HTTPS lock icon displays as normal, but clicking the icon does not display the HTTPS certificate.</p>
+	<p>In Google Chrome (on Linux and MacOS, but not on Windows), the HTTPS lock icon converts to the 'info' icon, claims the site is not secure, but it does not explain why, and you cannot see the certificate anymore. I know that Google Chrome technically does not use WebKit anymore, but I thought it was a useful comparison.</p> 
+	</body>
+</html> 
